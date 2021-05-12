@@ -1,0 +1,323 @@
+<html>
+  <!--Head
+  --------------------------------------->
+  <head>
+     <meta charset="utf-8">
+     <title>Equalização</title>
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+      <!-- Bootstrap Jquery -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+      <!-- Bootstrap Ajax -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+      <!-- Bootstrap JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+     
+     <!--Codigo JS-->
+     <script>
+      /*--------------------------------------------------------------
+       Função Principal Equalizar
+       ---------------------------------------------------------------*/
+        function Equalizar(){
+          let aLinhaImg = Array();
+        
+          for (var nY = 0; nY < 20; nY++) {
+            cNy = parseInt(nY);
+            cTextId = 'n'+cNy;
+            aLinhaImg[nY] = $('#'+cTextId).val();
+            //aLinhaImg[nY] = document.getElementById(cTextId).value;
+                 
+          }
+          
+          let oEqualiz = new Equalizacao(aLinhaImg);
+          aResul = oEqualiz.aGx;
+          
+          for (var nY = 0; nY < 20; nY++) {
+            cNy = parseInt(nY);
+            cTextId = 'nR'+cNy;
+            $('#'+cTextId).val(aResul[nY]);
+            //document.getElementById(cTextId).value= aResul[nY];
+                 
+          }
+        }
+
+        /*--------------------------------------------------------------
+       Definição da classe Obj Equalizar
+       ---------------------------------------------------------------*/
+        class Equalizacao{
+          constructor(aLinhaImg){
+            this.aLinhaImg = aLinhaImg;
+            this.aRepet  = this.montagemHk(this.aLinhaImg);
+            this.aSoma   = this.montagemHa(this.aRepet);
+            this.aPk     = this.montagemPk(this.aSoma);
+            this.aK      = this.montagemK(this.aPk);
+            this.aGx     = this.montagemGx(this.aLinhaImg,this.aK);
+          }
+  
+        /*--------------------------------------------------------------
+       Metodo para montagem g(x)
+       ---------------------------------------------------------------*/
+        montagemGx(aLinhaImg, aK){
+         let nX  = 0;
+         let aGx = Array();
+
+         while(nX < aLinhaImg.length){
+          aGx[nX] = aK[aLinhaImg[nX]];
+             nX++;
+            }
+         
+         return aGx;
+       }
+
+        /*--------------------------------------------------------------
+       Metodo para montagem o array K'
+       ---------------------------------------------------------------*/
+        montagemK(aPk){
+         let nX  = 0;
+         let aK = Array();
+
+         while(nX < aPk.length){
+            aK[nX] =   Math.round(aPk[nX] *9);
+             nX++;
+            }
+         
+         return aK;
+       }
+       
+       /*--------------------------------------------------------------
+       Metodo para montagem o array Pk
+       ---------------------------------------------------------------*/
+        montagemPk(aSoma){
+         let nX  = 0;
+         let aPk = Array();
+
+         while(nX < aSoma.length){
+            aPk[nX] =   aSoma[nX] / 20;
+             nX++;
+            }
+         
+         return aPk;
+       }
+
+      /*--------------------------------------------------------------
+       Metodo para montagem o array Ha(K) 
+       ---------------------------------------------------------------*/
+        montagemHa(aRepet){
+         let nX  = 0;
+         let aSoma = Array();
+
+         while(nX < aRepet.length/2){
+            if(nX == 0){
+               aSoma[0] = aRepet[nX];
+               nX ++;
+            }else{
+             aSoma[nX] =   aSoma[nX-1] + aRepet[nX];
+             nX++;
+            }
+         }
+         return aSoma;
+       }
+
+       /*--------------------------------------------------------------
+       Metodo para montagem o array H(k) 
+       ---------------------------------------------------------------*/
+        montagemHk(aLinhaImg){
+         let nX  = 0;
+         let aRepet = Array();
+
+         while(nX < aLinhaImg.length){
+            aRepet[nX] = this.verificarRep(nX, aLinhaImg);
+            nX++;
+         }
+         return aRepet;
+       }
+
+       /*--------------------------------------------------------------
+       Metodo para verificar a quantidade de repetições de um valor
+       ---------------------------------------------------------------*/
+         verificarRep(nValor, aArray){
+         let nX  = 0;
+         let nRep = 0;
+      
+         while(nX < aArray.length){
+           if(aArray[nX] == nValor){
+             nRep++ ;
+           }
+           nX++;
+         }
+          return nRep;
+       
+        }
+            
+       
+      }
+      </script>
+  </head>
+  
+  <!--Body
+  ---------------------------------->
+  <body class="bg-dark">
+    <header>
+      <!-- Container-->
+      <div class="container bg-white">
+        <!-- Titulo -->   
+        <div class="row bg-info">
+          <div class="col-sm-12">
+            <h1 class="text-center"> Processamento de imagem</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+      <section>
+        <!-- Container-->
+        <div class="container bg-white mt-3">
+        <!--Texto -->
+        <div class="row">
+          <div class="col-sm-12 mt-3">
+           <p> Preencha os campos abaixo e precione em Equalizar : </p>
+          </div> 
+        </div>
+        <!-- Tabela 1 -->
+        <table class="table table-responsive table-bordered" >
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col"> X</th>
+                <th scope="col">0</th>
+                <th scope="col">1</th>
+                <th scope="col">2</th>
+                <th scope="col">3</th>
+                <th scope="col">4</th>
+                <th scope="col">5</th>
+                <th scope="col">6</th>
+                <th scope="col">7</th>
+                <th scope="col">8</th>
+                <th scope="col">9</th>
+                <th scope="col">10</th>
+                <th scope="col">11</th>
+                <th scope="col">12</th>
+                <th scope="col">13</th>
+                <th scope="col">14</th>
+                <th scope="col">15</th>
+                <th scope="col">16</th>
+                <th scope="col">17</th>
+                <th scope="col">18</th>
+                <th scope="col">19</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th >F(x) = K</th> 
+                <td><input type='number' id='n0'  value='0' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n1'  value='0' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n2'  value='4' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n3'  value='6' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n4'  value='8' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n5'  value='8' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n6'  value='4' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n7'  value='7' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n8'  value='8' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n9'  value='9' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n10' value='9' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n11' value='4' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n12' value='3' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n13' value='2' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n14' value='3' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n15' value='8' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n16' value='2' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n17' value='2' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n18' value='1' min=0 max=9 style="width: 2.2em;"></td>
+                <td><input type='number' id='n19' value='0' min=0 max=9 style="width: 2.2em;"></td>
+              
+              </tr>       
+            </tbody>
+        </table>
+
+        <!-- Botao Equalizar -->
+        <div class="row">
+          <div class="col-sm-12 ">
+            <button type="button" class="btn btn-success col-sm-12 mb-2" onclick="Equalizar()">Equalizar</button>
+          </div>
+        </div>
+
+        <!--Resultado-->
+        <div class="row">
+          <div class="col-sm-12 ">
+            <p> Resultado : </p>
+          </div>
+        </div>
+        
+        <table class="table table-responsive table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"> X</th>
+              <th scope="col">0</th>
+              <th scope="col">1</th>
+              <th scope="col">2</th>
+              <th scope="col">3</th>
+              <th scope="col">4</th>
+              <th scope="col">5</th>
+              <th scope="col">6</th>
+              <th scope="col">7</th>
+              <th scope="col">8</th>
+              <th scope="col">9</th>
+              <th scope="col">10</th>
+              <th scope="col">11</th>
+              <th scope="col">12</th>
+              <th scope="col">13</th>
+              <th scope="col">14</th>
+              <th scope="col">15</th>
+              <th scope="col">16</th>
+              <th scope="col">17</th>
+              <th scope="col">18</th>
+              <th scope="col">19</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th >F(x) = K</th>
+              <td><input type='number' id='nR0'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR1'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR2'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR3'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR4'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR5'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR6'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR7'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR8'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR9'  disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR10' disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR11' disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR12' disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR13' disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR14' disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR15' disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR16' disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR17' disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR18' disabled="disabled" style="width: 2em;"></td>
+              <td><input type='number' id='nR19' disabled="disabled" style="width: 2em;"></td>
+            
+            </tr>       
+          </tbody>
+        </table>      
+      </div>
+    </section>
+
+    <footer>
+      <div class="container bg-white">
+        <!-- Titulo -->   
+        <div class="row bg-info">
+          <div class="col-sm-12 ">
+            <p class="text-center"> Nome: Eduardo Paro de Simoni n°:T6831B-8  Turma: CCQ6P39</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
