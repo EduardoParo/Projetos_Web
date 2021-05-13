@@ -1,0 +1,47 @@
+
+/*Nav*/
+#cabecalho nav {
+    background-image: radial-gradient(ellipse at center,#17882c 1%,#00510f 100%);
+    height: 120px;
+}
+/*Nav*/
+#cabecalho nav  p, h1{
+    width: 759px;
+	margin: 0 auto;
+    color:white;
+}
+#menuServicos{
+    background: green;
+    height: 50px;
+
+
+}
+#menuServicos ul a{
+	display       :block;
+	text-decoration: none;
+	font-size     : 20px;
+	color         : white;
+    padding      : 0px 60px ;
+    margin-left   : 5px ;
+    
+	box-sizing    : border-box;
+    border    : 1px solid rgba(255,255,255, .1);
+	border-bottom : 1px solid black;
+    
+    transition    : .4s;
+
+}
+#menuServicos ul li:hover a {
+
+	color  : blue;
+	
+}
+.fundo{
+    background: #f3f3f3 url(../_img/fundo-caixa.png);
+}
+.img-corusel{
+    width: 100%;
+    height: 400px;
+    margin-top: 5px;
+    margin-left: 60px;
+}
