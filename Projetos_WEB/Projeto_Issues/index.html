@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Projeto Issues</title>
+	
+		<meta charset="utf-8" />
+
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    	
+    	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 	crossorigin="anonymous"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="	anonymous"></script>
+    	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+
+
+    	<script type="text/javascript" src="javascript/javascript.js"></script>
+	</head>
+<!---Body
+	----------------------------------------------------------------------->
+	<body>
+		<!--Menu Header-->
+		<header>
+			<nav class="navbar navbar-expand-md navbar-light  bg-primary mb-5">
+				<div class="container">
+
+					<div class="collapse navbar-collapse">
+
+						<ul class="navbar-nav ml-auto ">
+							<li class="nav-item">
+								<a href="" class="nav-link"> Home</a>					
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!--Section Titulo-->
+		<section>
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-12 mb-5 border-bottom ">
+						<h1 class="display-4 text-center">Issues</h1>			
+							
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<!--Section Botões Registrar e Pesquisar-->
+		<section>
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6">
+						<button type="button" id="btnRegistrar" class="btn btn-success">
+             				 <i class="fas fa-plus"></i>
+          			  	</button>
+					</div>
+					
+					<div class="col-md-6">
+						<div class="input-group input-group-sm ">
+                			
+                			<input type="text" id="pesquisar"placeholder="Pesquisar" class="form-control">
+                			<div class="input-group-addon p-1 ">
+                				<button id="btnPesquisar" type="button" class="btn btn-primary">
+             						 <i class="fas fa-search"></i>
+           						</button>
+                			</div>
+                		</div>
+						
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--Section Tabela de Dados-->
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="table-responsive mt-4">
+							<table id= "tabelaDados" class="table table-bordered">
+								
+							</table>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</section>
+
+		<!--Footer
+    	 --------------------------------------------------->
+    	 <footer class="mt-5 mb-4">
+    	   <!--Container Footer-->
+    	   <div class="container">
+    	     <!--Linha Row-->
+    	     <div class="row border-top">
+
+    	   
+    	       <div class="col-md-12 d-flex justify-content-center">
+    	         <a href="" class="btn btn-outline-dark ml-2">
+    	           <i class="fab fa-facebook"></i>
+    	         </a>
+
+    	          <a href="" class="btn btn-outline-dark ml-2">
+    	           <i class="fab fa-youtube"></i>
+    	         </a>
+
+    	          <a href="" class="btn btn-outline-dark ml-2">
+    	           <i class="fab fa-twitter"></i>
+    	         </a>
+    	          <a href="" class="btn btn-outline-dark ml-2">
+    	           <i class="fab fa-instagram"></i>
+    	         </a>
+    	       </div>
+
+    	       
+    	     </div><!--Fim da Row Linha-->
+    	   </div><!--Fim Cointainer-->   
+      </footer>
+	
+		
+
+		<!-- Section MODAL
+		---------------------------------------------------------------------------->
+		 <section>
+      		<!-- Modal -->
+      		<div class="modal fade" id="telaModal" tabindex="		-1" role="dialog" aria-labelledby="     		exampleModalLabel" aria-hidden="true">
+      		  <div class="modal-dialog" role="document">
+      		    <!--Container-->
+      		    <div class="modal-content">
+					<header>
+      		    	  	<div id="titulo_modal_div" class="modal-header 		text-success">
+      		    	  		<h5 class="modal-title" id="titulo_modal">		TITULO MODAL</h5>
+      		    	  	  	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               			    	 <span aria-hidden="true">&times;</span>
+             		 		</button>
+            			</div>
+            		</header>
+            		<!--Seção Formulario nesses casos a Row vem depois do Formulario
+            		----------------------------------------------------------------------------------------->
+            		<section>
+           				<div id="conteudo_modal" class="modal-body">
+           					
+              				<!--Formulario
+              				 ----------------------------------------->
+							<form >
+								<!--Linhas
+								  ------------------->
+								<div class="row form-group">
+									
+									<label class="col-sm-2 control-label">Analista:</label>
+								 	
+									<div class="col-sm-10">
+                						<div class="input-group input-group-sm ">
+                							<div class="input-group-addon p-1 ">
+                					    		<span class="fa fa-user"></span>
+                					  		</div>
+                					  		<input type="text" id="analista" placeholder="Analista" class="form-control">
+                						</div>
+									</div>
+								</div>
+
+								<!--Linhas
+								  ------------------->
+								<div class="row form-group">
+									
+									<label class="col-sm-2 control-label">Descriçao:</label>
+								 	
+									<div class="col-sm-10">
+                						<div class="input-group input-group-sm ">
+                							<div class="input-group-addon p-1">
+                					    		<span class="fa fa-user"></span>
+                					  		</div>
+                					  		<input type="text" id="descricao" placeholder="Descrição" class="form-control">
+                						</div>
+									</div>
+								</div>
+
+								<!--Linhas
+								  ------------------->
+								<div class="row form-group ">
+									
+									<label class="col-sm-2 control-label">Número:</label>
+								 	
+									<div class="col-sm-10">
+                						<div class="input-group input-group-sm ">
+                							<div class="input-group-addon p-1">
+                					    		<span class="fa fa-user"></span>
+                					  		</div>
+                					  		<input type="text"id="numero" placeholder="Numero" class="form-control">
+                						</div>
+									</div>
+								</div>
+
+								<!--Linhas
+								  ------------------->
+								<div class="row form-group ">
+									
+									<label class="col-sm-2 control-label">Rotina:</label>
+								 	
+									<div class="col-sm-10 ">
+                						<div class="input-group input-group-sm ">
+                							<div class="input-group-append p-1">
+                					    		<span class=" fa fa-user "></span>
+                					  		</div>
+                					  		<input type="text" id="rotina" class="form-control" placeholder="Rotina" >
+                						</div>
+									</div>
+								</div>
+
+
+
+              				</form>
+              		
+              			</div>
+              
+            		</section>
+
+      		      <div class="modal-footer">
+      		        <button type="button" id="btn_registrar_modal" 		class="btn btn-secondary bg-success" 		data-dismiss="modal" >Registrar</button>
+      		        <button type="button" id="btn_voltar_modal" 		class="btn btn-secondary bg-danger" 		data-dismiss="modal">Voltar</button>
+      		      </div>
+      		    </div>
+      		  </div>
+      		</div>
+    	</section>
+
+    
+
+
+	</body>
+
+</html>	

@@ -1,0 +1,19 @@
+
+<h1> sobre nos </h1>
+<!----< ?php
+//    echo 'chegamos ao SOBRE NOS';
+//
+//   //echo 'chegamos ao index';
+//   //echo '<pre>';
+//   //print_r($this->oView->aDados);
+//   //echo '</pre>';
+------>
+
+<?php foreach($this->oView->aDados as $cIndice=>$aInfo) { ?>
+    <h1><?=$aInfo['titulo']?></h1>;
+    <br/>
+    <?=$aInfo['descricao']?>
+    <hr/>
+<?php } ?>
+    
+   

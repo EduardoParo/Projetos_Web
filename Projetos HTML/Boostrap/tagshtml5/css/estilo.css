@@ -1,0 +1,28 @@
+header{
+	border: 2px solid black;
+	padding: 10px;
+	background: green;
+}
+nav{
+	border: 1px solid black;
+	background: yellow;
+}
+footer{
+	border: 1px solid black;
+	background: red;
+}
+
+article{
+	background: green;
+	border: 1px dotted #fff;
+}
+section{
+	background: blue;
+	border: 1px dotted #fff;
+}
+
+aside{
+	background: green;
+	border: 1px dotted #fff;
+	float: right;
+}

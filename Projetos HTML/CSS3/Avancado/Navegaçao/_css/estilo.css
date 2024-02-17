@@ -1,0 +1,19 @@
+
+/*Seletor Universal*/
+*{
+	border: 1px solid red;
+}
+
+h1{
+	color:green;
+}
+.verde{
+	color:green;
+}
+p.verde{
+	color:green;
+}
+li>a{/*> Filho diretoo*/
+	color: yellow;
+	text-decoration: none;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Requisicoes Assincronas 1</title>
+		
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+		<script>
+			function requisitarPag(cUrl){
+
+					if(!document.getElementById('loading')){
+							//INCLUIR O GIF LOADING 
+							let oImg 		= document.createElement('img');
+							oImg.id 		= 'loading';
+							oImg.src 		= 'loading.gif';
+							oImg.className  ='rounded mx-auto d-block';
+		
+							document.getElementById('conteudo').appendChild(oImg);
+
+					}
+
+					let oAjax = new XMLHttpRequest();
+					//VERIFICAR ESTADO DE CONEXÃO STATE
+					//console.log(oAjax.readyState);	
+
+		
+					oAjax.open('GET', cUrl);
+
+					//VERIFICAR ESTADO DE CONEXÃO STATE 1 
+					//console.log(oAjax.readyState);	
+
+					
+					//LOGICA QUE FIQUE SEMPRE ATUALIZANDO A REQUISIÇÃO
+					oAjax.onreadystatechange = () =>{
+
+						if(oAjax.readyState	== 4 && oAjax.status ==200){
+
+							//VERIFICAR ESTADO DE CONEXÃO STATE 4 FINALIZOUA		REQUISIÇÃO AI PRECISA VER O STATUS
+							console.log(oAjax.readyState);	
+
+							if(oAjax.readyState ==4){
+								console.log('SUCESSO STATUS : ' +oAjax.status)
+								console.log('REQUISIÇÃO FINALIZADA');
+
+								//document.getElementById('loading').remove();
+								document.getElementById('conteudo').innerHTML = oAjax.response;
+							}
+
+						}else{
+							document.getElementById('conteudo').innerHTML = 'Erro  Status : '+ oAjax.status;
+							/*
+							Respostas de informação (100-199),
+							Respostas de sucesso (200-299),
+							Redirecionamentos (300-399)
+							
+							Erros do cliente (400-499)
+							Erros do servidor (500-599).
+
+							*/
+
+							//document.getElementById('loading').remove();
+
+						}
+
+
+					}
+		
+
+					//ENVIAR REQUISIÇÃO
+					oAjax.send();
+
+
+					console.log(oAjax);
+				}
+		</script>
+	
+	</head>
+
+	<body>
+
+		<!-- Static navbar -->
+	    <nav class="navbar navbar-light bg-light mb-4">
+	      <div class="container">
+	        <div class="navbar-brand mb-0 h1">
+	        	<h3>Requisições síncronas e assíncronas</h3>
+	        </div>
+	      </div>
+	    </nav>
+
+
+	    <div class="container">
+
+	    	<div class="row mb-2">
+	    		<div class="col-md-4 center"></div>
+	    		<div class="col-md-4 center">
+	    			<a href="#" class="btn btn-primary" onclick="requisitarPag('Pagina_1_conteudo.html')">Página 1</a>
+	    			<a href="#" class="btn btn-primary" onclick="requisitarPag('Pagina_2_conteudo.html')">Página 2</a>
+	    			<a href="#" class="btn btn-primary" onclick="requisitarPag('Pagina_3_conteudo.html')">Página 3</a>
+	    		</div>
+	    		<div class="col-md-4 center"></div>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<div class="col-md-1"></div>
+
+		    	<div class="col-md-10" id='conteudo'>
+		    		
+		    	</div>
+				<div class="col-md-1"></div>
+			</div>
+
+		</div>	
+	</body>
+</html>

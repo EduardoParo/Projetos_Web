@@ -1,0 +1,13 @@
+*{
+	color: red;
+}
+
+h2{/* Terceiro Prioridade*/
+	color: blue;
+}
+h2.verde{/* Segundo Prioridade*/
+	color: green;
+}
+h2#amarelo{/* Primeiroo Prioridade*/
+	color:yellow;
+}

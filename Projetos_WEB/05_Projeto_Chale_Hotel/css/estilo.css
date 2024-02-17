@@ -1,0 +1,179 @@
+/*Estrutura
+*/ 
+{
+	margin:o0;
+	padding:0;
+}
+
+body{
+	font-family: Hevetica,"Trebuchet MS", sans-serif;
+	background: #fff url(../imagens/imagens/bg.png);
+	margin:15px;
+}
+/*Principal*/
+#container{
+	/*border:1px solid red;*/
+	background: #ede9cc url(..imagens/imagens/bg-container.png) top center repeat-y;
+	margin: 0 auto;
+	min-width:740px;
+	max-width:1180px;
+
+}
+#topo{
+	position:relative;
+	background: #dbcd87;
+	height: 15.4em;
+	min-height: 250px;
+}
+	#area-logo{
+		position: absolute;
+		background: url(../imagens/imagens/topo-imagem-principal.png)no-repeat;
+		width: 100%;
+		height: 250px;
+		top: 0;
+		left: 0;/*colado a esquerda*/
+		z-index: 1 /*definir imagem 1*/
+	}
+	.logo a{
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		z-index: 3; /*definir imagem sobre acima da 2*/
+		background: url(../imagens/imagens/logo.png) no-repeat;
+		width:151px;
+		height: 66px;
+		text-indent: -90000px; /*remover o conteudo texto*/
+	
+	}
+	#area-menu{
+		position: absolute;
+		top: 0;
+		right: 0;/* fica colado a direita*/
+		background: url(../imagens/imagens/topo-imagem-lateral.png);
+		width: 450px;
+		height: 250px;
+		z-index: 2 /*definir menu como 2 ou seja em sobre acima do 2*/
+	}
+	#conteudo-menu{
+		margin-left: 90px;
+		/*border:solid red;*/
+		margin-right: 15px;
+		padding-top: 15px;
+	}
+	#menu-locais{
+		border-bottom: 1px solid #b5ab56;
+		border-top: 1px solid #b5ab56;
+		padding-top:5px;
+		padding-bottom:5px;
+		font-size: 0.7em;
+		color:#8b8448;
+	}
+	#menu-locais .locais{
+		float:left;
+		line-height: 2.1em;/* centralizar na div o conteudo */
+		/*border: 1px solid red;*/
+	}
+	#menu-locais a.reserva{
+		text-transform:uppercase;
+		background:#a29750;
+		color:#fff5b0;
+		padding: 5px 10px;
+		float: right;
+	}
+	a {
+		text-decoration:  none;
+	}
+	#menu-vertical{
+		margin-top:15px;		 
+	}
+	#menu-vertical ul{
+		margin: 0px;
+		padding:0px;
+		list-style: none;
+	}
+	#menu-vertical ul#navegacao{
+		float: left;		 
+	}
+	#menu-vertical ul#navegacao a{
+		text-transform: uppercase;
+		font-size: 0.8em;
+		padding:5px;
+		color:#6e672c; 	 
+		line-height: 30px; /*espaçamento de cada linha */
+	}
+	#menu-vertical ul#navegacao a:hover{
+		background: #fdf6be; 	 
+	}
+	#menu-vertical .depoimento{
+		width: 226px;
+		height: 164px;
+		float: right;		 
+	}
+
+#area-principal{
+		/*background: red;*/
+		background: url(../imagens/imagens/bg-area-principal.png) top left repeat-x;
+		float:left;
+		width: 50%;
+		padding: 15px 0px;
+}
+	#area-lateral{
+		/*background: blue;*/
+		background: url(../imagens/imagens/bg-area-lateral.png) top left repeat-x;
+		padding: 20px 0px;
+		float:right;
+		width: 50%;
+	}
+	.conteudo{
+		margin:0 auto;
+		width: 90%;
+	}
+
+	#area-lateral ul#lista-benefios li{
+		padding: 8px;
+		border-bottom:1px solid #f3efcb;
+		height: 6em;
+	}
+	#area-lateral ul#lista-benefios li a img{
+		float: left;
+		margin-right: 8px;	
+	}
+	#area-lateral ul#lista-benefios li a {
+		text-decoration: none;
+		font-size: 0.8em;
+	}
+	
+	#area-lateral ul#lista-benefios li:hover{
+		background: #f6f3d6;
+		cursor: pointer;
+	}
+	#area-lateral ul#lista-benefios li a p {
+		color: #000;
+		font-size: 0.8em;
+	}
+	#area-lateral ul#lista-benefios li a h3 {
+		font-size: 1.2em;
+		color: #615b2d;
+		padding:5px 0;
+		background: url(../imagens/imagens/ornamento.png)no-repeat center right;
+	}
+
+
+#rodape{
+	clear:both;/*limpar elementos flutantes para aumentar a div anterior*/
+	padding: 16px;
+	background: #fff url(..imagens/imagens/bg-rodape.png) repeat-x top;
+	color:#7d7640;
+}
+
+h2{
+	color: #7d7640;
+	font-size: 1.1em;
+	padding: 5px 0px;
+}
+
+p{
+	font-size: 1em;
+	margin-bottom:10px;
+
+}

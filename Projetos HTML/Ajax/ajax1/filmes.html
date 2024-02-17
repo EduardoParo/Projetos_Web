@@ -1,0 +1,152 @@
+<!--HTML
+-------------------------------------------------->
+<html lang="pt-br">
+   <!--HEAD
+	----------------------------------------------------->
+	<head>
+		<meta charset="utf-8">
+		<title>Catálogo de filmes</title>
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+		<script src="xmltojson.js"></script>
+
+		<!--JAVASCRIP-->
+		<script>
+
+			function getFilmes() {
+				//CRIA O OBJETO PARA CONSUMIR O XML
+				let oAjax = new XMLHttpRequest();
+
+				//ENVIA A REQUISIÇÃO
+				oAjax.open('GET', 'http://localhost:8080/Desenvolvimento_Web/ajax1/filmes.xml');
+
+				//VERIFICAR O RETORNO DA REQUISIÇÃO
+				oAjax.onreadystatechange = () => {
+					if(oAjax.readyState == 4 && oAjax.status == 200) {
+						
+						let cXMLFilmes = oAjax.responseText;
+						//console.log(cXMLFilmes);
+						
+
+						let oParse = new DOMParser();
+						oXMLFilmes = oParse.parseFromString(cXMLFilmes,'text/xml');
+
+						//CONVERTE PARA UM OBJETO EM FORMATO JASON
+						oJsonFilmes = xmlToJson(oXMLFilmes);
+						console.log(oJsonFilmes);
+
+						for (let nI in oJsonFilmes['filmes']['filme']){
+							let oItem = oJsonFilmes['filmes']['filme'][nI];
+							
+							/*CRIAÇÃO DE ELEMENTOS HTML
+							------------------------------------------------*/
+							let oDivRow = document.createElement('div');
+							oDivRow.className = 'row';
+
+							let oDivCol = document.createElement('col');
+							oDivCol.className = 'col';
+
+							/*PREENCHIMENTO DE PARAGRAFOS
+							------------------------------------------------*/
+							let oP1 = document.createElement('p');
+							oP1.innerHTML = '<strong>Titulo :</strong> ' +oItem['titulo']['#text'];
+
+							let oP2 = document.createElement('p');
+							oP2.innerHTML = '<strong>Resumo :</strong>' +oItem['resumo']['#text'];
+
+							let cGenero = '';
+							for(let nX in oItem.genero){
+								//console.log(oItem.genero[nX][#text]);
+								if(cGenero){
+									cGenero +=', ';
+								}
+								cGenero+= oItem.genero[nX]['#text'];
+							}
+
+							let oP3 = document.createElement('p');
+							oP3.innerHTML = '<strong>Gênero :</strong>Gênero do filme ';
+							
+							let cElenco = '';
+							for(let nX in oItem.elenco.ator){
+								//console.log(oItem.genero[nX][#text]);
+								if(cElenco) cElenco +=', ';
+								cElenco+= oItem.elenco.ator[nX]['#text'];
+							}
+
+							let oP4 = document.createElement('p');
+							oP4.innerHTML = '<strong>Elenco :</strong>'+cElenco;
+
+							let oP5 = document.createElement('p');
+							oP5.innerHTML = '<strong>Data de lançamento: </strong>'+oItem['dataLancamento']['#text']+ '(' +       oItem.dataLancamento['@attributes']['pais']+')';
+
+							let oHr = document.createElement('hr');
+
+							//MONTAGEM DOS ELEMENTOS CRIADOS
+							oDivRow.appendChild(oDivCol);
+							oDivCol.appendChild(oP1);
+							oDivCol.appendChild(oP2);
+							oDivCol.appendChild(oP3);
+							oDivCol.appendChild(oP4);
+							oDivCol.appendChild(oP5);
+
+							document.getElementById('lista').appendChild(oDivRow);
+
+						}
+		
+
+					}
+
+					if(oAjax.readyState == 4 && oAjax.status == 404) {
+						console.log('ERRO -> '+oAjax.status);
+					}
+				}
+
+				oAjax.send();
+			}
+		</script>
+	</head>
+
+	<!--BODY
+	------------------------------------------------------->
+	<body>
+		<!--HEADER CABEÇALHO -->
+		<header>
+			<nav class="navbar navbar-light bg-light mb-4">
+				<div class="container">
+					<div class="navbar-brand mb-0 h1">
+						<h3>Catálogo de filmes</h3>
+					</div>
+				</div>
+			</nav>
+	   </header>
+
+	   <!--Conteudo -->
+	   <section>
+			<div class="container" id='lista'>
+				<div class="row">
+					<div class="col">
+						<button type="button" class="btn btn-success" onclick="getFilmes()">Listar filmes</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+			<!--
+			<section>
+				<div class="row">
+					<div class="col">
+						<p><strong>Titulo :</strong> Titulo do filme </p>
+						<p><strong>Resumo :</strong>Resumo do filme  </p>
+						<p><strong>Gênero :</strong>Gênero do filme  </p>
+						<p><strong>Elenco :</strong>Elenco do filme  </p>
+						<p><strong>Data de lançamento: </strong>Data de 	lançamento</p>
+						<p><strong> </strong></p>
+						<hr>
+					</div>
+					
+				</div>
+			</section>-->
+	  
+	</body>
+</html>

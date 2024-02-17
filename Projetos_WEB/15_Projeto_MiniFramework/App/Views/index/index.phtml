@@ -1,0 +1,15 @@
+
+<h1> index </h1>
+<?php
+   //echo 'chegamos ao index';
+   //echo '<pre>';
+   //print_r($this->oView->aDados);
+   //echo '</pre>';
+
+    foreach($this->oView->aDados as $cIndice=>$aProduto) {
+        echo $aProduto['id'] . ' - ' . 
+             $aProduto['descricao'] . ' - ' . 
+             $aProduto['preco'] ;
+        echo '</br>';
+    }
+?>

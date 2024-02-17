@@ -1,0 +1,33 @@
+#teste1 ul{
+	
+	list-style-type:none;
+	margin: 0;
+	padding: 0;
+}
+
+#teste1 li{
+	padding: 10px 20px;
+	/*border:1px solid red;*/
+	background: url("../Download/imagens/seta.png") no-repeat left center;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+ul a{
+	width: 200px;
+	height: 40px;
+	background: #f7b600 url(../Download/imagens/menu.png) no-repeat left bottom; /*caso a imagem nao funcione a cor é aplicada */
+	display: block;/*O link não e elemneto bloco */
+	color: black;
+	text-decoration: none;
+	text-indent: 40px;
+	line-height: 40px; /*centralizar a fonte na linha / tamanho da linha*/
+	border: 1px solid red;
+}
+a:hover{
+	background-position:right bottom;
+	background-color: #f99200;/* caso a imagem não carrege tem uma cor no fundo do menu*/
+	color:white;
+}

@@ -1,0 +1,32 @@
+
+
+
+#home #navegacao-principal .home a,
+#sobre #navegacao-principal .sobre a{
+	background-position:right bottom;
+	background-color: #f99200;/* caso a imagem não carrege tem uma cor no fundo do menu*/
+	color:white;
+}
+
+ul{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+ul a{
+text-decoration: none;
+width: 200px;
+height: 40px;
+background-color:#f7b600;
+display: block;
+color: black;
+text-indent: 40px;
+line-height: 40px;
+border: 1px solid red;
+}
+	
+a:hover{
+	background-position:right bottom;
+	background-color: #f99200;/* caso a imagem não carrege tem uma cor no fundo do menu*/
+	color:white;
+}

@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+body{
+	font-family: "Trebuche MS", Helvetica, sans-serif;
+	background: #d2d2c1 url('../../Site_Uness/_imagens/fundo.png');
+	}
+	#interface{
+    width: 90%;/*A largura do site //Faz uma margem no site inteiro conteudo fica todo no meio, menos o menu*/
+    margin-top:10px ;/*margem de cima, direita baixo e esquerda auto e automatico pelo navegador */
+    margin-right: auto;/*margem de cima, direita baixo e esquerda auto e automatico pelo navegador */
+    margin-left: auto;/*margem de cima, direita baixo e esquerda auto e automatico pelo navegador */
+    margin-bottom:0px;/*margem de cima, direita baixo e esquerda auto e automatico pelo navegador */
+     /*sombra no dessa margem */
+    padding:10px;/*espaco interno da margem */
+	}
+#menu{
+		margin: 15px 5px;	
+		box-shadow:0px 0px 10px blue;
+	}
+	a{
+		float: right;
+	 	padding: 3px;
+	 	margin:5px;
+	 	border:1px solid white;	
+		box-shadow:0px 0px 10px blue;
+		text-decoration: none;
+	}
+	a:hover{
+		color: green;
+		font-size: 1.5em;
+		background-color: #ffff;
+	}
+	.noticia{
+		box-shadow:0px 0px 10px red;
+		width:280px;
+		padding:5px;
+		margin: 10px;
+		float:left;
+	}
+	h2{
+		padding:5px;
+		border: yellow;
+	}
+	p{
+		text-align: justify;
+		text-indent: 15px;
+		background: #ffff;
+	}
+
+	#rodape{
+		position-bottom:fixed;
+		border: 1px solid red;
+		text-align: center;
+	}

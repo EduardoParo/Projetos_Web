@@ -1,0 +1,35 @@
+ul#navegacao-principal{
+margin:0;
+padding: 0px;
+list-style: none;
+/*border: 1px solid red;*/
+width: 720px;
+background: #159cb0 url("../download/imagens/fundo-horizontal.png") repeat-x;
+float: left;
+}
+ul li{
+	/*border: 1px solid red;*/
+	float: left;
+
+}
+ul a{
+	display: block;
+	padding: 0 2.2em;
+	line-height: 2.2em;
+	text-decoration: none;
+	color: white;
+	background: url("../download/imagens/divisor.png") repeat-y left top;
+}
+ul .primeiro a{
+	background: none;
+}
+ul a:hover{
+	color: #085662;
+	background: #44cade;
+}
+#home #navegacao-principal .home a,
+#sobre #navegacao-principal .sobre a,
+#servicos #navegacao .servicos a {
+	color: #085662;
+	background: #44cade;
+}

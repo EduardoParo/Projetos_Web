@@ -1,0 +1,32 @@
+body{
+	font-family: "Trebuche MS", Helvetica, sans-serif;
+}
+
+ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+	width: 720px;
+}
+ul li{
+	/*border: 1ps solid red; */
+	float: left;/*Ficar um ao lado do outro*/
+	background: url("../download/imagens/aba-direita.png") repeat top right;
+}
+
+li a{
+	display: block;
+	padding: 0 2em;
+	line-height: 3em;
+	text-decoration: none;
+	background: url("../download/imagens/aba-esquerda.png") no-repeat top left;
+}
+ul a:hover{
+	color:yellow;
+}
+ul #atual{
+	background: url("../download/imagens/aba-direita-atual.png");
+}
+ul #atual a{
+	background: url("../download/imagens/aba-esquerda-atual.png")no-repeat top left;
+}

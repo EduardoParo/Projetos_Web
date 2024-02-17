@@ -1,0 +1,173 @@
+<html>
+  <!--Head
+  -------------------------------------------------------------------------->
+	<head>
+     <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8" />
+		<title>Orçamento pessoal</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap Jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- Bootstrap Ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap fim -->
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <!-- MY JavaScript -->
+    <script type="text/javascript" src="javascript/app.js"></script>
+	</head>
+
+  <!--Body
+  -------------------------------------------------------------------------->
+  <body onload="mostrarLista()">
+    <!--Header Cabecalho 
+      ---------------------------------------------------------------->
+    <header>
+      <!--Nav Header Cabecalho-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+        <!--Container-->
+        <div class="container">
+
+          <a class="navbar-brand" href="#">
+             <img src="logo.png" width="50" height="35" alt="Orçamento pessoal">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=  "#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="  false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <!--Menus-->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Cadastro</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="consulta.html">Consulta</a>
+              </li>
+            </ul>
+            
+          </div><!--Fim Menus-->
+        </div><!--Fim Container-->
+      </nav><!--Fim nav CabecaLho-->
+    </header><!--Fim Header-->
+
+    <!--Section 
+      ------------------------------------------------------------->
+    <section>
+      <!--Container -->
+      <div class="container">
+        <!--Linha Titulo-->
+        <div class="row mb-5">
+          <!--Coluna Interia -->
+          <div class="col">
+            <h1 class="display-4">Consulta de despesas</h1>
+          </div>
+        </div>
+        
+        <!--Row Linha Dados-->
+        <div class="row mb-2">
+          <!--Coluna Ano-->
+          <div class="col-md-2">
+            <select class="form-control" id="ano">
+              <option value="">Ano</option>
+              <option value="2018">2018</option>
+            </select>
+          </div>
+          
+          <!--Coluna Mes-->
+          <div class="col-md-2">
+            <select class="form-control" id="mes">
+              <option value="">Mês</option>
+              <option value="1">Janeiro</option>
+              <option value="2">Fevereiro</option>
+              <option value="3">Março</option>
+              <option value="4">Abril</option>
+              <option value="5">Maio</option>
+              <option value="6">Junho</option>
+              <option value="7">Julho</option>
+              <option value="8">Agosto</option>
+              <option value="9">Setembro</option>
+              <option value="10">Outubro</option>
+              <option value="11">Novembro</option>
+              <option value="12">Dezembro</option>
+            </select>
+          </div>
+          
+           <!--Coluna Dia-->
+          <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="Dia" id="dia" />
+          </div>
+          
+           <!--Coluna Tipo-->
+          <div class="col-md-6">
+            <select class="form-control" id="tipo">
+              <option value="">Tipo</option>
+              <option value="1">Alimentação</option>
+              <option value="2">Educação</option>
+              <option value="3">Lazer</option>
+              <option value="4">Saúde</option>
+              <option value="5">Transporte</option>
+            </select>
+          </div>
+        </div>
+        
+         <!--Row Segunda Linha-->
+        <div class="row  mb-5">
+          <div class="col-md-8">
+            <input type="text" class="form-control" placeholder="Descrição" id="descricao"   />
+          </div>
+          
+          <!--Coluna Valor-->
+          <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="Valor" id="valor" />
+          </div>
+          
+          <!--Coluna Botão Pesquisa -->
+          <div class="col-md-2 d-flex justify-content-end">
+            <button type="button" class="btn btn-primary" onclick="pesquisarDespesa()">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!--Terceira Linha Tablea-->
+        <div class="row">
+          <!--Coluna interia tabela -->
+          <div class="col">
+            <table class="table" >
+              <!--Cabeçalho-->
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Tipo</th>
+                  <th>Descrição</th>
+                  <th>Valor</th>
+                  <th></th>
+                </tr>
+              </thead>
+               
+               <!--Dados da Tabela--> 
+              <tbody id="listaDespesas">
+                <!--
+                <tr>
+                  <td>09/04/2020</td>
+                  <td>Alimentação</td>
+                  <td>Compras</td>
+                  <td>3000</td>
+                -->
+              </tbody>
+
+            </table>
+          </div>
+        </div><!--Fim Linha Tabela-->
+      </div><!--Fim container-->
+    </section><!--Fim Secao Dados-->
+  </body>	<!--Fim body-->
+
+</html>

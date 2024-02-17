@@ -1,0 +1,34 @@
+/***********************************
+*Estilizando Formulários*/
+body{
+	font-family: "Trebuche MS",Helvetica, sans-serif;
+}
+fieldset{
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #ccc;
+	background: #f8f8f8;
+}
+legend{
+	font-weight: bold;/*deixar o texto em negrito */
+
+}
+label{
+	/*border: 1px solid red;*/
+	display: block;
+	cursor: pointer; /*ao passar o mouse vira uma mão */
+}
+input[type="text"]{ /*Formatar somente input do tipo text e não afetar o radio*/
+	width: 20em;
+	border: 1px solid blue;
+}
+textarea{
+	width: 20em;
+	height: 20em;
+}
+input.radio, input.checkbox, input.submit{
+	width: auto;/* O width nas classes radio checkbox e submit sera padrao automatico e não com o tamanho acima de 20em*/
+}
+.radio{
+	margin-right: 1em;
+}

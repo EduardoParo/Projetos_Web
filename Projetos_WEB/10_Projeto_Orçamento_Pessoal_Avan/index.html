@@ -1,0 +1,169 @@
+<html>
+<!--Head
+  ------------------------------------------------------------------->
+	<head>
+     <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8" />
+		<title>Orçamento pessoal</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <!-- Bootstrap Jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <!-- Bootstrap Ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <!-- MY JavaScript -->
+     <script type="text/javascript" src="javascript/app.js"></script>
+	</head>
+
+  <!--BODY
+  ------------------------------------------------------------------->
+  <body>
+    <!--Header
+      ------------------------------------------------------>
+    <header>
+      <!--Nav----->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+        <!---Container Head-->
+        <div class="container">
+           <!-- Logo----->
+          <a class="navbar-brand" href="#">
+             <img src="logo.png" width="50" height="35" alt="Orçamento pessoal">
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=  "#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="  false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!--Menu-->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Cadastro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="consulta.html">Consulta</a>
+              </li>
+            </ul>          
+          </div><!--Fim Container -->
+        </div><!--Fim da Nav --->
+    </header><!--Fim do Header-->
+
+    <!--Section 
+     ----------------------------------------------------------->
+    <section>
+      <!--Container-->
+      <div class="container">
+        <!--Row Titulo-->
+        <div class="row">
+          <!--Coluna -->
+          <div class="col mb-5">
+            <h1 class="display-4">Registro de nova despesa</h1>
+          </div>
+        </div>
+        
+        <!--Row Primeira Linha Dados-->
+        <div class="row mb-2">
+
+          <!--Coluna Ano -->
+          <div class="col-md-2">
+            <select class="form-control" id="ano">
+              <option value="">Ano</option>
+              <option value="2018">2018</option>
+            </select>
+          </div>
+
+           <!--Coluna Mes -->
+          <div class="col-md-2">
+            <select class="form-control" id="mes">
+              <option value="">Mês</option>
+              <option value="1">Janeiro</option>
+              <option value="2">Fevereiro</option>
+              <option value="3">Março</option>
+              <option value="4">Abril</option>
+              <option value="5">Maio</option>
+              <option value="6">Junho</option>
+              <option value="7">Julho</option>
+              <option value="8">Agosto</option>
+              <option value="9">Setembro</option>
+              <option value="10">Outubro</option>
+              <option value="11">Novembro</option>
+              <option value="12">Dezembro</option>
+            </select>
+          </div>
+          
+           <!--Coluna Dia -->
+          <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="Dia" id="dia" />
+          </div>
+          
+          <!--Coluna Tipo-->
+          <div class="col-md-6">
+            <select class="form-control" id="tipo">
+              <option value=" ">Tipo</option>
+              <option value="1">Alimentação</option>
+              <option value="2">Educação</option>
+              <option value="3">Lazer</option>
+              <option value="4">Saúde</option>
+              <option value="5">Transporte</option>
+            </select>
+          </div>
+        </div>
+        
+        <!--Row Segunda Linha Descriçao-->
+        <div class="row">
+          <!--Coluna Descrçao-->
+          <div class="col-md-8">
+            <input type="text" class="form-control" placeholder="Descrição" id="descricao"   />
+          </div>
+          
+          <!--Coluna Valor -->
+          <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="Valor" id="valor" />
+          </div>
+          
+          <!-- Coluna Botão-->
+          <div class="col-md-2 d-flex justify-content-end">
+            <button type="button" class="btn btn-primary" onclick="cadastrarDespesa()">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div><!--Fim da Row-->
+      </div><!--Fim Container-->
+    </section>
+
+      <!--Section MODAL SUCESSO
+     ----------------------------------------------------------->
+    <section>
+      <!-- Modal -->
+      <div class="modal fade" id="modalRegistra" tabindex="-1" role="dialog" aria-labelledby="     exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <!--Container-->
+          <div class="modal-content">
+
+            <div id="titulo_modal_div" class="modal-header text-success">
+              <h5 class="modal-title" id="titulo_modal">TITULO MODAL</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="conteudo_modal" class="modal-body">
+              Registros gravados com sucesso !
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="btn_voltar_modal" class="btn btn-secondary bg-success" data-dismiss="modal">Voltar</button>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>	
+
+</html>

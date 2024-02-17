@@ -1,0 +1,32 @@
+/****************************
+*********************
+*********Estilizando Tabelas****/
+body{
+	font-family: "Trebuche MS", Helvetica, sans-serif;
+}
+table{
+	width: 600px;
+	border-collapse: separate;/* COLLAPSE cola as bordas das tabelas */
+}
+th,td{
+	/*border: 1px solid red;*/
+	padding: 7px;
+}
+th{
+	text-transform: uppercase; /*TRANSFORMAR TODAS AS LETRAS EM MAIUCULO*/
+	border-top: 0.5px solid #999;
+	border-bottom:  1px solid #111;
+	text-align: left;
+	font-size: 90%;
+	letter-spacing: 0.5px; /*ESPAÇAMENTO ENTRE AS LETRAS*/
+}
+tr.alternado{
+	background-color:  #efefef;
+
+}
+tr:hover{
+	background-color:#c3e6e5;	
+}
+.numero{
+	text-align: right;
+}

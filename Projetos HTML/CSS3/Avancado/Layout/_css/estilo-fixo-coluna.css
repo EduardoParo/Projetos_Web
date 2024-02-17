@@ -1,0 +1,71 @@
+body{
+	font-family: "Trebuche MS", Helvetica, sans-serif;
+	background: #f2f2f2;
+}
+#container{
+	border: 1px solid red;
+	width: 960px;/*Tamanho total do site*/
+	margin: 0 auto;
+	background: #fff url("../Download/Imagens/coluna.png")repeat-y left top;
+	min-width:600px; /*Tamanho minimo do site*/
+	max-width: 960px;
+	min-height: ; /*Tamnanho minimo de altura do site*/
+}	
+#marca{
+	width: 100%;
+	border: .5px solid red
+	height:200px;
+	background: #225992 url("../Download/Imagens/cabecalho2.jpg")repeat center;
+	text-align: center;
+	line-height: 300px;
+}
+#imagem{
+	width: 90%;
+	border: 1px solid black;
+	overflow: hidden;/*Esconde o conteudo */
+}
+#conteudo{
+	border: .5px solid red;
+	width: 75%;
+	float: right;
+}
+#conteudo-principal{
+	border: .5px solid red;
+	width: 63%;
+	float: left;
+}
+img.img-noticia{
+	width: 94%;/*o padding ocupa 2% cada lado por isso usamos 96 */
+	padding-top: 2%;
+	max-width: 600px;
+}
+#conteudo-secundario{
+	border: .5px solid red;
+	width: 34%;
+	float: right;
+	background: #d1d1d1;
+}
+#navegacao{
+	border: .5px solid red;
+	width: 23%;/*180 + 520 = 700px sobra 20px*/
+	float:left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	/*background: #d1d1d1;*/
+}
+#navegacao ul{
+	list-style: none;
+}
+#navegacao li a{
+	text-decoration: none;
+}
+#rodape{
+	clear: both;
+	background: #c4c4c4;
+	padding: 5px;
+}
+.conteudo{
+	text-indent: 5px;
+	text-align: justify;
+	padding: 15px;
+}

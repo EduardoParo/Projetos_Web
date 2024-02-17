@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title> Posicionamento (static, relative, absolute e fixed)</title>
+
+	<style type="text/css">
+
+		body{
+			background: #007fc7;
+		}
+		#container{
+			background: white;
+			width: 800px;
+			margin:10px auto;/*--10px superior e inferior e automatico para laterais, centralizando a dv--->*/
+			padding: 10px;
+			position: relative; /*Foi inserido relativo para a posição da class absolute se alinhe ao container que está centralizado */ 
+		}
+		h1{
+			position: static;
+		}
+		p{
+			width: 300px;
+			position: ;
+		}
+		.absolute{
+			background: #f2f2f2;
+			border: 1px solid red;
+			position: absolute; /*ELA É CALCULADA BASEADA NO CORPO DA PAGINA OU O CONTAINER QUE STA O ELEMENTO*/ 
+			top:20px;
+			right: 20px;
+		}
+		.fixed{
+			border-style: 1px solid red;
+			background:#f2f2f2;
+			position: fixed;
+			bottom: 0px;
+			right: 0px;
+			margin: 0px;
+		}
+		p{
+			width: 300px;
+		}
+	</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<h1>Posicionamento</h1>
+			<p> P1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tortor ac justo fermentum imperdiet et euismod sapien. Quisque eget leo nec erat tincidunt consectetur vel id arcu. Suspendisse interdum nisi ullamcorper placerat posuere. In hac habitasse platea dictumst. Praesent condimentum augue ac neque rhoncus, non porta lorem tempus. Vivamus eu porta ligula. Integer rutrum dui id ligula tempus, vel volutpat urna sollicitudin. Sed orci eros, malesuada ut venenatis eu, lacinia vel libero. Duis varius sapien et tincidunt dapibus. Quisque suscipit interdum felis ac sodales. Maecenas vel lacus lorem. Integer diam ligula, rutrum sit amet nibh ac, ultricies rhoncus tellus. Donec pellentesque tincidunt blandit.
+			aa</p>
+			<p class= "absolute"> P2 - ABSOLUTE Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis ABSOLUTE tortor ac justo fermentum imperdiet et euismod sapien. Quisque eget leo nec erat tincidunt consectetur vel id arcu. Suspendisse ABSOLUTE interdum nisi ullamcorper placerat posuere. In hac habitasse platea dictumst. Praesent condimentum ABSOLUTE augue ac neque rhoncus, non porta lorem tempus. Vivamus eu porta ligula. Integer rutrum dui id ligula tempus, vel volutpat urna sollicitudin. Sed orci eros, malesuada ut venenatis eu, lacinia vel libero. Duis varius sapien et tincidunt dapibus. Quisque suscipit interdum felis ac sodales. Maecenas vel lacus lorem. Integer diam ligula, rutrum sit amet nibh ac, ultricies rhoncus tellus. 
+			aa</p>
+			<p> P3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tortor ac justo fermentum imperdiet et euismod sapien. Quisque eget leo nec erat tincidunt consectetur vel id arcu. Suspendisse interdum nisi ullamcorper placerat posuere. In hac habitasse platea dictumst. Praesent condimentum augue ac neque rhoncus, non porta lorem tempus. Vivamus eu porta ligula. Integer rutrum dui id ligula tempus, vel volutpat urna sollicitudin. Sed orci eros, malesuada ut venenatis eu, lacinia vel libero. Duis varius sapien et tincdiunt dapibus. Quisque suscipit interdum felis ac sodales. Maecenas vel lacus lorem. Integer diam ligula, rutrum sit amet nibh ac, ultricies rhoncus tellus. Donec pellentesque tincidunt blandit.
+			aa</p>
+			<p class="fixed"> P4 FIXED Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tortor ac justo fermentum imperdiet et euismod sapien.
+			aa</p>
+				<p> P3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tortor ac justo fermentum imperdiet et euismod sapien. Quisque eget leo nec erat tincidunt consectetur vel id arcu. Suspendisse interdum nisi ullamcorper placerat posuere. In hac habitasse platea dictumst. Praesent condimentum augue ac neque rhoncus, non porta lorem tempus. Vivamus eu porta ligula. Integer rutrum dui id ligula tempus, vel volutpat urna sollicitudin. Sed orci eros, malesuada ut venenatis eu, lacinia vel libero. Duis varius sapien et tincdiunt dapibus. Quisque suscipit interdum felis ac sodales. Maecenas vel lacus lorem. Integer diam ligula, rutrum sit amet nibh ac, ultricies rhoncus tellus. Donec pellentesque tincidunt blandit.
+			aa</p>
+		</div>
+	</body>
+
+<html>

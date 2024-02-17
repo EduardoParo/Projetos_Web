@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> FlexBox</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="">
+	<style type="text/css">
+		#conteudo{
+			background: #dcdcdc;
+			height: 400px;
+			display: flex;
+
+			/*----------------------------------
+			row|row-reverse|collum|collum-reverse
+			------------------------------------*/
+			flex-direction: column-reverse; /*formato de linhas inline*/
+			/*-----------------------------------
+			nowrap|wrap|wrap-reverse
+			------------------------------------*/
+			flex-wrap: wrap; /*nowrap não vai quebrar os items*/
+			/*-----------------------------------------------------------
+			flex-start|flex-end|center|space-between|space-around
+			---------------------------------------------------------*/
+			justify-content: space-around; /*space-between centraliza os itens colando nas laterais*/
+			/*-----------------------------------------------------------
+			stretch|center|flex-start|flex-end|baseline
+			------------------------------------------------------------*/
+			align-items: center; /*flex-start centraliza no inicio da pg*/
+		}
+
+		.item{
+			width: 100px;
+			height: 100px;
+			margin:10px;
+			background: white;
+			border:1px solid red;
+			/*Define a proporção de espaço ocupado por um item*/
+			flex-grow: 0;
+					flex-shrink: 5;/*Ao contrario do flex-grow encolhendo o item*/
+		}
+
+		.ordem{
+			order:3;
+			flex-grow: 1;
+
+		}
+
+	</style>
+</head>
+<body>
+
+	<h1>FlexBox</h1>
+	<div id="conteudo">
+		<div class="item">01</div>
+		<div class="item">02</div>
+		<div class="item">03</div>
+		<div class="item">04</div>
+		<div class="item">05</div>
+		<div class="item ordem">06</div>
+	</div>
+
+
+</body>
+</html>

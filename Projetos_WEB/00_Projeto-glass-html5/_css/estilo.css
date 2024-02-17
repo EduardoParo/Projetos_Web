@@ -1,0 +1,217 @@
+@charset "UTF-8";
+@font-face{
+    font-family:"FonteLogo";
+    src: url("../_fonts/bubblegum-sans-regular.otf");
+}
+/*----------------------------------FORMATACAO DO BODY CORPO DO SITE-----------------------------------------------*/
+body{
+    background-color:#dddddd; /*cor do body */
+    font-family: Arial, sans-serif;
+}
+/*--------------------------------FORMATACAO DA DIV INTERFACE CORPO DO SITE------------------------------------------*/
+div#interface{
+    width: 900px;/*A largura do site //Faz uma margem no site inteiro conteudo fica todo no meio, menos o menu*/
+    background-color: #ffffff;/*Toda a interface o body tera um fundo branco */
+    margin:-20px auto 0px auto;/*margem de cima, direita baixo e esquerda auto e automatico pelo navegador */
+    box-shadow:0px 0px 10px black; /*sombra no dessa margem */
+    padding:10px;/*espaco interno da margem */
+}
+/*----------------------------------------FORMATACAO DE PARAGRAFOS DO SITE--------------------------------------------*/
+p{
+    text-align: justy;/* justificar o texto do body */
+    text-indent: 50px;/* paragravo 50px de espacamento*/
+}
+/*----------------------------------------FORMATACAO DE LINKS DO SITE--------------------------------------------*/
+a{
+    color:606060; /* cor mais clara cinza */
+    text-decoration: none; /* link sem sublinar */
+}
+a:hover{
+    text-decoration: underline; /* Quando passar o mouse em cima do link ira sublinhar */
+}
+/*---------------------------------------FORMATACAO DO CABECALHO DO SITE---------------------------------------------- */
+header#cabecalho img#icone{
+    position: absolute;/*pegar a imagem completa */
+    left: 850px;/* lado direito */ 
+    top:70px;/* top da pagina */
+}
+header#cabecalho{
+    border-bottom: 1px #606060 solid;/* criar uma borda para diferenciar o cabecalho do body */ 
+    height: 150px; /* Altura do cabecalho */
+    background: url("../_imagens/glass-logo-peq.jpg") no-repeat 0px 80px;/* Imagem de fundo no cabecalho sem repetir pois a imagem e pequena*/
+}
+header#cabecalho h1{
+    font-family:'FonteLogo', sans-serif ;/*formato da letra */
+    font-size: 30px;/* tamanho*/
+    color: #606060;/* cor cinza*/
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);/*Sombra na letra h1 */
+    padding: 0px;/* espaco interno */
+    margin-bottom: 0px; /* espaco externo bottom somente margen de baixo */
+}
+header#cabecalho h2{
+    font-family:'Titillium Web', sans-serif; /*formato da letra do google*/
+    font-size: 15px;/* tamanho*/
+    color: #888888;/* cor cinza*/
+    padding: 0px;
+    margin-top: 0px;
+}
+    
+/*---------------------------------------------FORMATACAO DE IMAGENS---------------------------------------- */
+figure.foto-legenda{
+/*------Formatação de borda----- */ 
+    border:8px solid white;
+    box-shadow: 1px 1px 4px black;
+    position: relative;
+}
+figure.foto-legenda img{
+/*------Formatação centralizada imagem .img----- */ 
+   width: 100%;
+   height: 100%;
+}
+figure.foto-legenda figcaption{
+/*Legenda da imagem*/
+    position:absolute;/*absolute = tela da imagem inteira */
+    top:0px;/* legenda no topo da foto */
+    background-color:rgba(0,0,0,.4);/*cor sobre poem da foto*/
+    color: white;/*cor da letra da legenda */
+    width:100%;/* sombra na foto */
+    height:100%;/* sombra na foto*/
+    padding:10px;
+    box-sizing:border-box;/* borda da legenda*/
+    opacity: 0;/* fica invisivel as formatacoes da legenda somente ser aplicas apos o comando abaixo */
+    transition: opacity 1s; /* tempo para mostrar a legenda*/
+}
+figure.foto-legenda:hover figcaption{
+    opacity: 1; /*Legenda da imagem aparecer somente com mouse*/
+}
+/* -------------------------------------------FORMATACAO MENU-----------------------------------------------*/
+nav#menu{
+    display:block; /*tranformar o menu em bloco para arrastar todo em qualquer posicao da tela*/
+}
+nav#menu ul{
+    list-style: none; /*retirar marcadores de bolinhas do ul */
+    text-transform: uppercase; /*transformar o texto em Maiusculo*/  
+    position:absolute;/* somente a lista vai para o topo da tela absoluta = tela inteira*/
+    top:-20px;/* e negativo pois o site tem uma margem */
+    left:450px;/*lado direito */
+}
+nav#menu li{
+    display: inline-block; /* Mostrar um ao lado do outro os blocos do menu */
+    background-color:#dddddd; /* colocar cor cinza*/
+    padding:: 10px; /* espacamento dos botoes internos tamanho dos blocos*/
+    margin: 20px; /* distancia dos botoes fora o dos blocos*/
+    transition: background-color 1s;/* demora 1s para usar o houver abaixo e mudar a cor do meno */
+}
+nav#menu li:hover{
+    background-color: #606060;/*toda vez que passar o mouse em cima do menu ele muda de cor */
+}
+nav#menu h1{
+    display:none;/*esconder o h1 menu principal ele so fica la no html para identificar*/
+}
+nav#menu a{
+    color: #000000;/*Todo link do menu letras na cor preta */
+    text-decoration: none;/*retirar o sublinhado que vem automatico no link */
+}
+nav#menu a:hover{
+    color: #ffffff;/* toda vez que passa o mouse no menu a letra do link muda para branco*/
+    text-decoration: underline;/*toda vez que passa o mouse no menu a letra fica sublinhada*/
+}
+/* -------------------------------------------FORMATACAO CORPO DAS DIVISOES DA PAGINA-----------------------------------------------*/
+section#corpo{
+    display: block; /*Mostrar como bloco lado esquerdo da divisao  */
+    width: 500px; /*Largura */
+    float:left; /*flutuar para o lado esquedo */
+    border-right:1px solid #606060;/* borda direira cinza 1px */
+    padding-right: 15px; /* margen interna */
+}
+article#noticia-principal h2{
+    font-size: 13pt;/* Tamanho do fonte */
+    color: #606060; /* cor da fonte */
+    background-color: #dddddd; /*  cor do fundo */
+    padding: 5px 0px 10px 0px; /* Margem interna */
+    margin: 10px 0px 10px 0px; /* Margem externa*/
+}
+header#cabecalho-artigo h1{
+    font-family: 'FonteLogo', sans-serif; /* Fonte dos h1 dentro do cabecalho do arquivo*/
+    font-size: 20px; /* Tamanho da fonte*/
+    color: #606060; /*  Cor da fonte cinza*/
+    margin-bottom: 0px; /* retirando toda margem abaixo da letra */
+    margin-top: 0px; /* retirando toda margem acima da letra*/
+}
+.direita{ /* class criada por causa da data ficar ao lado direito da tela*/
+    text-align: right;
+}
+header#cabecalho-artigo h2{
+    font-size: 13pt; /*  Tamanho da fonte*/
+    color:#cecece; /* Cor da fonte*/
+    background-color: #ffffff; /* Retirando toda a cor de fundo e deixando branco*/
+    margin: 0px; /* Retirando a margem*/
+}
+header#cabecalho-artigo h3{
+    font-size: 12pt;
+    color: #606060;
+    
+}
+/*-------------------------------------------------TABELA------------------------------------------------------------------------*/
+table#tabelaspec{
+    border: 1px solid #606060;/* somente borda externa da tabela */
+    border-spacing: 0px; /* 0 de espaco entre as celulas */
+    margin-left: auto; /* centralizar a tabela*/
+    margin-right: auto; /* centralizar tabela  */
+}
+table#tabelaspec td{
+    border: 1px solid #606060; /* borda para cada celula <td> da tabela */
+    padding: 10px;/* espaco inetrno de todos os objetos*/
+    text-align: center; /* alinhamento ao centro */
+    vertical-align:middle; /* alinhamento ao centro */
+}
+table#tabelaspec td.ce{
+    color:#ffffff; /*cor da fonte da coluna esquerda da tabela */
+    background-color: #606060; /* cor de fundo da coluna esquerda da tabela */
+    vertical-align: top;/* Alinhamento para o topo da celula*/
+    font-weight: bold;/* Negritooo*/
+}
+table#tabelaspec td.cd{
+    background-color: #cecece; /* cor da coluna direita */
+}
+table#tabelaspec caption{
+    color: #888888; /*cor da fonte */
+    font-size: 13pt;/* Tamanho do titulo da tabela */
+    font-weight: bolder; /* Negrito*/
+}
+table#tabelaspec caption span{
+display:block; /* Mostrar o span que e a data da tabela como bloco */
+float:right;/* a data vai flotoar a direita*/
+color:#000000; /* cor da fonte preta */
+font-size:8pt;/* Tamanho pequeno*/ 
+margin-top: 10px; /*Margem da data no topo */
+}
+/* -------------------------------------------------- FIM DA TABELA-------------------------------------------------------------------*/
+aside#lateral{
+    display:block; /*Mostrar como bloco lado direito da divisao  */
+    width: 350px; /*Largura */
+    float:right; /*flutuar para o lado direito */   
+    background-color: #dddddd; /* cor do fundo  da lateral direita*/
+    padding: 10px; /* Margem interna da lateral direita */
+    margin-top: 10px; /* Margem do topo da lateral direita */
+    box-shadow: 2px 2px 2px rgba(0,0,0,.5);/*Sombra na margem cor preta transparente*/
+}
+aside#lateral h1{
+    font-family: 'FonteLogo', sans-serif; /* Fonte */
+    font-size: 20pt; /* Tamanho da Fonte*/
+    color: #606060; /* cor da fonte  */
+    margin-top: 0px; /* Retirando a margem externa do topo */
+}
+aside#lateral h2{
+    background-color: #606060; /* cor do fundo das letras h2 */
+    font-size: 13pt; /* Tamanho da fonte h2 */ 
+    color: #ffffff; /* Cor das letras em branco */
+    padding: 5px; /* Margem interna 5px*/
+}
+footer#rodape{
+    clear:both; /* Limpe as configuracoes dos 2 lados*/
+    border-top: 1px solid #606060; /*borda no topo do rodape */
+}
+footer#rodape p{
+    text-align:center; /* centralizar o texto do rodape*/
+}
